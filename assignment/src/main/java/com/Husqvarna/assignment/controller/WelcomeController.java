@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WelcomeController {
 
-    // inject via application.properties
     @Value("${welcome.message}")
     private String message;
 
@@ -17,10 +16,8 @@ public class WelcomeController {
     public String mainWithParam(
             @RequestParam(name = "name", required = false, defaultValue = "") 
 			String name, Model model) {
-
         model.addAttribute("message", message);
-
-        return "welcome"; //view
+        return "welcome";
     }
 
 }
